@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "./Card";
-import {initalState, mens} from "./data";
+import {initalState, mens, sales} from "./data";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 
@@ -8,14 +8,15 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 const Carousel1 = ({category}) => {
 	const [cards, setCards] = useState(initalState);
   const [cardsmen, setCardsmen] = useState(mens);
+  const [sale, setSale] = useState(sales)
 
   const handleLeftClick = (cards) => {
     let prevState = [...cards]
     
     // find next inactive card index - top
     const nextCardIdx = prevState
-      .filter((ft:any) => ft.active === true)
-      .sort((a:any, b:any) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))[0].idx;
+      .filter((ft) => ft.active === true)
+      .sort((a, b) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))[0].idx;
 
     // reset
     prevState.find((f) => f.active === false).active = true ;
@@ -35,8 +36,8 @@ const Carousel1 = ({category}) => {
      
     // find next inactive card index - bottom
     const nextCardIdx = prevState
-      .filter((ft:any) => ft.active === true)
-      .sort((a:any, b:any) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))
+      .filter((ft) => ft.active === true)
+      .sort((a, b) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))
       .pop(1).idx;
     // minimize pos
     prevState.find((f) => f.active === false).pos =
@@ -59,12 +60,12 @@ const Carousel1 = ({category}) => {
     <>
     <div className="mb-[100px]">
 
-    		 <div className="flex items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-6  w-screen">
+    		 <div className="flex flex-wrap items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-6  w-screen">
     	<AiOutlineLeft 
         className="text-xl md:text-2xl cursor-pointer"
-        onClick={() => category === "women" ? handleLeftClick(cards) : handleLeftClick(cardsmen)}
+        onClick={() => category === "women" ? handleLeftClick(cards) : (category === "men" ? handleLeftClick(cardsmen) : handleLeftClick(sale))}
         />
-       { category == "women" ? (<div className="flex items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-6">
+       { category === "women" ? (<div className="flex flex-wrap items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-4">
          {cards
         .filter((f) => f.active === true)
         .sort((a, b) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))
@@ -76,9 +77,10 @@ const Carousel1 = ({category}) => {
            cost={card.cost}
            />
         ))}
-       </div>) : ( 
-
-       <div className="flex items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-6">
+       </div>) : (
+        
+        category === "men" ? (
+          <div className="flex flex-wrap items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-4">
          {cardsmen
         .filter((f) => f.active === true)
         .sort((a, b) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))
@@ -91,11 +93,29 @@ const Carousel1 = ({category}) => {
            />
         ))}
 
-       </div>)}
+       </div>
+        ):(
+          <div className="flex flex-wrap items-center justify-center md:p-[5px] md:mb-[10px] md:gap-8 gap-4">
+         {sale
+        .filter((f) => f.active === true)
+        .sort((a, b) => (a.pos > b.pos ? 1 : b.pos > a.pos ? -1 : 0))
+        .map((card, index) => (
+          <Card 
+          key={index} 
+          image={card.image} 
+          desc={card.desc}
+           cost={card.cost}
+           />
+        ))}
+
+       </div>
+        )
+
+       )}
       
       <AiOutlineRight
         className="text-xl md:text-2xl cursor-pointer"
-        onClick={() => category === "women" ? handleRightClick(cards) : handleRightClick(cardsmen)}
+        onClick={() => category === "women" ? handleRightClick(cards) : (category === "men" ? handleRightClick(cardsmen) : handleRightClick(sale))}
         />
     </div>
     	

@@ -24,13 +24,13 @@ const NavLinks = () => {
            	 	<div className="bg-white p-3.5 flex gap-16 w-auto px-14 items-center justify-center">
            	 		{link.sublinks.map(mysublinks => (
            	 		           	 			<div>
-           	 		           	 				<h1 className="text-[17px] font-semibold">
+           	 		           	 				<h1 className="text-[17px] font-semibold duration-500">
            	 		           	 				{mysublinks.head}
            	 		           	 				</h1>
            	 		           	 				{mysublinks.sublink.map((slink) => (
            	 		           	 					<li 
            	 		           	 					className="text-sm  my-2.5">
-           	 		           	 						<a href={slink.link} className="hover:text-blue-500">
+           	 		           	 						<a href={slink.link} className="hover:text-blue-500 duration-500">
            	 		           	 						{slink.name}
            	 		           	 						</a>
            	 		           	 					</li>

@@ -27,13 +27,5 @@ export const items = [
 		{name:"Orders & Returns",link:"/"},
 		{name:"Support Center",link:"/"},
 		{name:"Shipping & Delivery",link:"/"},
-	]},{
-		head: "Quick Shop", submenu:true, subitems: [
-
-		{name:"55 Gallaxy Enque,"},
-		{name:"2568 steet, 23568 NY"},
-		{name:"Phone:(440) 000 000 0000"},
-		{name:"Email :sales@yousite.com"},
-		
 	]}
 ]

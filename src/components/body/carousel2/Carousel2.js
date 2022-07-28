@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { slides } from './data';
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
@@ -76,13 +76,13 @@ const Carousel2 = () => {
                 className="carousel-item text-center relative w-[350px] h-[450px] snap-start"
               >
                 <a
-                  // href={resource.link}
+                  href="/"
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
                   style={{ backgroundImage: `url(${resource.image || ''})` }}
                 >
                   <img
                     src={resource.image || ''}
-                    // alt={resource.title}
+                    alt=""
                     className="w-full aspect-square hidden"
                   />
                    <button className="text-black bg-white p-[5px] mt-[380px] px-3 mx-auto text-xl">

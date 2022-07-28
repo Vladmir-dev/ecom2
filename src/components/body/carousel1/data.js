@@ -40,16 +40,6 @@ export const initalState = [
                 cost: "$500.00",
                 active: false 
         },
-        { 
-                idx: 6, 
-                pos: 6, 
-                active: false 
-        },
-        { 
-                idx: 7, 
-                pos: 7, 
-                active: false 
-        },
         
       ]
 
@@ -102,3 +92,51 @@ export const mens = [
                 active: false 
         },
 ]
+
+
+export const sales = [
+
+        { 
+                        idx: 1, 
+                        pos: 1, 
+                        image: "https://cdn.shopify.com/s/files/1/0447/0836/4454/products/AZUR-BL-A-09_300x.jpg?v=1654570228",
+                        desc: "Azure Braclet",
+                        cost: "$550.00", 
+                        active: true 
+                },
+                { 
+                        idx: 2, 
+                        pos: 2, 
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0-lJzgS9XSYQiXUUQSUykxvQtZYNXXe6Y8w&usqp=CAU",
+                        desc: "Basic tie",
+                        cost: "$700.00", 
+                        active: true    
+                },
+                { 
+                        idx: 3, 
+                        pos: 3, 
+                        text: "3",
+                        image: "https://dynamic.zacdn.com/6tbk4ERRpPUEoFSnLGgdN87u_Mw=/fit-in/236x345/filters:quality(95):fill(ffffff)/https://static-sg.zacdn.com/p/mango-man-0682-3326082-2.jpg",
+                        desc: "Basic Tie",
+                        cost: "$788.00", 
+                        active: true 
+                },
+                { 
+                        idx: 4, 
+                        pos: 4, 
+                        text: "4",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5XIBGAXTHCZ7bOOHLlAJ88t7p9-1kInKJxBIg6doEvldVVBkBKUcPkYwW6VbyV3NC0Eo&usqp=CAU",
+                        desc: "Basic Tie",
+                        cost: "$500.00", 
+                        active: true 
+                },
+                { 
+                        idx: 5, 
+                        pos: 5, 
+                        text: "5", 
+                        image: "https://ean-images.booztcdn.com/edblad/1300x1700/g/edb102029_csteel.jpg",
+                        desc: "Stella Ring",
+                        cost: "$500.00",
+                        active: false 
+                },
+        ]
